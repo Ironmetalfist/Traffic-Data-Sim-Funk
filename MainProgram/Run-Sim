@@ -1,0 +1,59 @@
+#This is the Script that will run the simulation
+#This is V0.01.001
+
+#imports for this script
+import numpy as np
+import pandas as pd
+import Create-Veh as CV
+
+#------------------------------Intialize and import Data---------------------------------
+#Creates a time distance matrix
+TimeDistance = np.zeros( (200,200) )
+#Intial data for each vehicle
+IntData = np.zeros( (500,1) ) #Has the intial time the vehicle entered the road
+#Intail the Vehicle Charateristics
+VehChar = np.zeros( (1,6) ) #these Charateristics are listed in the Create-Veh script
+
+
+#imports the road data from a .ods
+RoadSightD = pd.read_excel(RoadData.xlsx) #Not Created yet
+
+
+#Tracking number to count the number of vehicles
+m = 1;
+#Number of vehicles in the queue to start
+queue = 0;
+# The amount of time you want to run the simulation in hours
+s = 20
+# Converts the time from hours to milliseconds
+s = s * 3600000
+#------------------------------Intialize and import Data---------------------------------
+
+#------------------------------Testing Intial Data For Errors----------------------------
+#------------------------------Testing Intial Data For Errors----------------------------
+
+#------------------------------Main Loop of Program--------------------------------------
+
+#The Main Loop for running the simulation
+for time in range(time, s):
+
+  #determines if queue needs to be updated
+  if time % 60000 == 0 #Still need to determine how often to run the queue
+    #runs the queuing script
+    queue = os.system("Queuing.py") # Still needs to be created
+  
+  #Looks at the last vehicle to determine if new vehicle can be added to the road
+  if queue /= 0
+    #determine if this is the first vehicle to enter road
+    if IntData(0,0) = 1
+      #adds a vehicle to the road
+        VehChar = CV.Veh
+      
+
+
+
+
+
+
+
+#------------------------------Main Loop of Program--------------------------------------
