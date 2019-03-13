@@ -7,10 +7,12 @@ import pandas as pd
 import CVeh from Create-Veh
 
 #------------------------------Intialize and import Data---------------------------------
-#Creates a time distance matrix
-TimeDistance = [[0], [0]] #Has the intial time the vehicle entered the road in the first column
+#Creates a time distance matrix of vehicles
+np.TimeDistance = [[0], [0]] #Has the intial time the vehicle entered the road in the first column and the distance the vehicle has traveld from the begining of the road vehicle therefor after that.
+#Creates a speed matrix for vehicles
+np.SpeedMatrix = [[0], [0]] #Contains the speed of each vehicle at different times.
 #Intail the Vehicle Charateristics
-VehChar = [0,0,0,0,0,0] #these Charateristics are listed in the Create-Veh script
+VehChar = [1,0,0,0,0,0] #these Charateristics are listed in the Create-Veh script
 
 
 #imports the road data from a .ods
@@ -18,11 +20,11 @@ RoadSightD = pd.read_excel(RoadData.xlsx) #Not Created yet
 
 
 #Tracking number to count the number of vehicles
-m = 1;
+m = 2; #starts at 2 because The first vehicle has a different protocol
 #Number of vehicles in the queue to start
 queue = 0;
 # The amount of time you want to run the simulation in hours
-s = 20
+s = 2
 # Converts the time from hours to milliseconds
 s = s * 3600000
 #------------------------------Intialize and import Data---------------------------------
@@ -42,20 +44,28 @@ for time in range(time, s):
   
   #Looks at the last vehicle to determine if new vehicle can be added to the road
   if queue /= 0
+  
     #determine if this is the first vehicle to enter road
     if IntData(0) = 0
       #adds a vehicle to the road
-      VehChar = CVeh #runs the function CVeh in Create-Veh.py
-      
+      VehChar() = CVeh #runs the function CVeh in Create-Veh.py
+      VehChar(0) = 1
       #Changes the var time from millisecond into day:hours:Minutes:Second:Milliseconds
       T = BetterTime(time) #I am still not sure where to define this yet
-      #Records the intial time of vehicle entering the rode
-      IntData = T
+      #Records the intial time of vehicle entering the road
+      TimeDistance(0,0) = T
+      #Sets the initail speed of the vehicle
+      SpeedMatrix(0,0) = VehChar(5)
     
-  #Adds a vehicle to the roadway
-    elseif 
-      TempAdd = CVeh
-
+    #Adds a vehicle to the roadway if enough headway
+    elseif VehChar(1,ml) >= VehChar(4,ml)*2*VehChar(2,ml)-VehChar(5,ml) #This will be cited to an equation after enough research
+      TempAdd = CVeh #runs the function CVeh in Create-Veh.py
+      TempAdd(0) = m #set the vehicle number
+      m = m + 1 #count of number of vehicles that have entered the road
+      VehChar.append(TempAdd) #add the vehicle to the list on vehicle on road
+      
+  #This is to determine if the vehicle should be deleted because it is past the end of the roadway section    
+  if VehChar(0,1) >= MaxD
 
 
 
