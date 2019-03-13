@@ -4,15 +4,13 @@
 #imports for this script
 import numpy as np
 import pandas as pd
-import Create-Veh as CV
+import CVeh from Create-Veh
 
 #------------------------------Intialize and import Data---------------------------------
 #Creates a time distance matrix
-TimeDistance = np.zeros( (200,200) )
-#Intial data for each vehicle
-IntData = np.zeros( (500,1) ) #Has the intial time the vehicle entered the road
+TimeDistance = [[0], [0]] #Has the intial time the vehicle entered the road in the first column
 #Intail the Vehicle Charateristics
-VehChar = np.zeros( (1,6) ) #these Charateristics are listed in the Create-Veh script
+VehChar = [0,0,0,0,0,0] #these Charateristics are listed in the Create-Veh script
 
 
 #imports the road data from a .ods
@@ -34,7 +32,7 @@ s = s * 3600000
 
 #------------------------------Main Loop of Program--------------------------------------
 
-#The Main Loop for running the simulation
+#The Main Loop for running the simulation by the millisecond
 for time in range(time, s):
 
   #determines if queue needs to be updated
@@ -45,10 +43,18 @@ for time in range(time, s):
   #Looks at the last vehicle to determine if new vehicle can be added to the road
   if queue /= 0
     #determine if this is the first vehicle to enter road
-    if IntData(0,0) = 1
+    if IntData(0) = 0
       #adds a vehicle to the road
-        VehChar = CV.Veh
+      VehChar = CVeh #runs the function CVeh in Create-Veh.py
       
+      #Changes the var time from millisecond into day:hours:Minutes:Second:Milliseconds
+      T = BetterTime(time) #I am still not sure where to define this yet
+      #Records the intial time of vehicle entering the rode
+      IntData = T
+    
+  #Adds a vehicle to the roadway
+    elseif 
+      TempAdd = CVeh
 
 
 
